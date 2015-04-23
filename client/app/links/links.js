@@ -5,9 +5,10 @@ angular.module('shortly.links', [])
   console.log('LINKS:',Links);
   $scope.getLinks = function(){
     Links.getLinks().then(function(data){
-      console.log('we got data: ' + data);
-      console.log('STRINGIFIED DATA:',JSON.stringify(data));
+       console.log('STRINGIFIED DATA:',data);
       $scope.data.links = data;
+      console.log('we got data: ', $scope.data.links);
+
     })
     //hits DB
     //gets all the links

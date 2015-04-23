@@ -39,5 +39,6 @@ describe('LinksController', function () {
     createController();
     $httpBackend.flush();
     expect($scope.data.links).to.eql(mockLinks);
+    // console.log(JSON.strinify(),JSON.strinigfy(mockLinks))
   });
 });

@@ -7,12 +7,23 @@
       url: '/api/links',
     })
     .then(function (resp) {
-      // console.log('resp: ' + JSON.stringify(resp));
+       console.log('respp: ' + JSON.stringify(resp));
       return resp.data;
     });
   };
 
-   var addLink = function(){};
+   var addLink = function(link){
+    var newLink = {url : link};
+    return $http({
+      method: 'POST',
+      url: '/api/links',
+      data: newLink
+    })
+    .then(function(resp) {
+      console.log('addLink resp: ' + resp);
+      return resp;
+    });
+  };
 
   return {
     getLinks: getLinks,
