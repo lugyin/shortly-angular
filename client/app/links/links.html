@@ -1,4 +1,9 @@
 <div id='links'>
+<form class="form-inline">
+  <input ng-model="query" type="text">
+</form>
  <h1>Links</h1>
-   <div ng-repeat="link in data.links track by $index">{{link.url}} </div>
+   <div ng-repeat="link in data.links |filter:query | orderBy : 'visits' : reverse=true">{{'Link: ' + link.url}}<br>{{'Count: ' + link.visits}}<br>
+    <a href={{link.base_url+'/api/links/'+link.code}}>{{link.base_url+'/api/links/'+link.code}} </a> </div>
+    <a href="#/shorten"> <strong>Shorten New Link</strong></a>
 </div>

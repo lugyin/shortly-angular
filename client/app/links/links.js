@@ -7,6 +7,9 @@ angular.module('shortly.links', [])
     Links.getLinks().then(function(data){
        console.log('STRINGIFIED DATA:',data);
       $scope.data.links = data;
+      // $scope.data.links.sort(function(a,b){
+      //   return b.visits-a.visits;
+      // });
       console.log('we got data: ', $scope.data.links);
 
     })

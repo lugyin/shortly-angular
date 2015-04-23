@@ -5,6 +5,8 @@ angular.module('shortly.auth', [])
 
 .controller('AuthController', function ($scope, $window, $location, Auth) {
   $scope.user = {};
+  $scope.invalidUser = false;
+  $scope.invalidUserPass = false;
 
   $scope.signin = function () {
     Auth.signin($scope.user)
@@ -13,7 +15,7 @@ angular.module('shortly.auth', [])
         $location.path('/links');
       })
       .catch(function (error) {
-        console.error(error);
+        $scope.invalidUserPass = true;
       });
   };
 
@@ -24,7 +26,7 @@ angular.module('shortly.auth', [])
         $location.path('/links');
       })
       .catch(function (error) {
-        console.error(error);
+        $scope.invalidUser = true;
       });
   };
 });
